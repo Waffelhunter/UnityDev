@@ -31,6 +31,7 @@ public class CharacterController2D : MonoBehaviour
 	public class BoolEvent : UnityEvent<bool> { }
 
 	public BoolEvent OnCrouchEvent;
+	
 	private bool m_wasCrouching = false;
 
 	private void Awake()
@@ -42,6 +43,8 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+
+		
 	}
 
 	private void FixedUpdate()

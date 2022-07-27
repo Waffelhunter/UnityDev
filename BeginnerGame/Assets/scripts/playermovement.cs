@@ -8,15 +8,39 @@ public class playermovement : MonoBehaviour
     float HorizontalMove = 0f;
     public float MovementSpeed = 0f;
     bool jump = false;
+    private Rigidbody2D m_Rigidbody2D;
+    public Animator animator;
+
 
     // Update is called once per frame
+    private void Awake()
+    {
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
-        HorizontalMove = Input.GetAxisRaw("Horizontal")*MovementSpeed;
+        HorizontalMove = Input.GetAxisRaw("Horizontal") * MovementSpeed;
+        animator.SetFloat("Speed", Mathf.Abs(HorizontalMove));
         if (Input.GetButtonDown("Jump"))
-            {
+        {
             jump = true;
-            }
+
+
+            animator.SetBool("IsJumping", true);
+           
+
+
+
+            //    animator.SetBool("IsJumping", false);
+            //     animator.SetBool("IsFalling", true);
+
+
+        }
+    }
+    public void OnLand()
+    {
+        animator.SetBool("IsJumping", false);
+        
     }
 
     private void FixedUpdate()
