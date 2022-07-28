@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
+	[SerializeField] private float m_DashForce = 400f;							// Amount of force added when the player dashes
 	[Range(0, 1)][SerializeField] private float m_CrouchSpeed = .36f;           // Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)][SerializeField] private float m_MovementSmoothing = .05f;   // How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
@@ -11,6 +12,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
+	private bool CanDash = false;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -33,6 +35,9 @@ public class CharacterController2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	
 	private bool m_wasCrouching = false;
+
+	public Projectile ProjectilePrefab;
+	public Transform Launchoffset;
 
 	private void Awake()
 	{
@@ -62,6 +67,7 @@ public class CharacterController2D : MonoBehaviour
 				
 
 				jumpsLeft = maxJumps;
+				CanDash = true;
 				m_Grounded = true;
 
 				if (!wasGrounded)
@@ -71,7 +77,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool crouch, bool jump, bool dash, bool shoot)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
@@ -139,16 +145,35 @@ public class CharacterController2D : MonoBehaviour
 		{
 			// Add a vertical force to the player.
 
-			
-				m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
-				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-			
 
-			
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+
+
+
 			m_Grounded = false;
-			
-			jumpsLeft --;
-			
+
+			jumpsLeft--;
+
+		}
+		if (dash && m_FacingRight && CanDash)
+		{
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+			m_Rigidbody2D.AddForce(new Vector2(m_DashForce, m_DashForce / 10));
+			CanDash = false;
+
+		}
+		if (dash && !m_FacingRight && CanDash)
+		{
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+			m_Rigidbody2D.AddForce(new Vector2(-m_DashForce, m_DashForce / 10));
+			CanDash = false;
+		}
+		if (shoot)
+		{
+
+			Instantiate(ProjectilePrefab, Launchoffset.position, transform.rotation);
+
 		}
 	}
 
