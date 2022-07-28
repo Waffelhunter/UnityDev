@@ -11,7 +11,7 @@ public class playermovement : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
     public Animator animator;
     bool dash= false;
-    bool shoot = false;
+    
     
 
 
@@ -44,7 +44,7 @@ public class playermovement : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            shoot = true;
+            
             
         }
     }
@@ -56,9 +56,9 @@ public class playermovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        controller2D.Move(HorizontalMove * Time.deltaTime, false, jump,dash,shoot) ;
+        controller2D.Move(HorizontalMove * Time.deltaTime, false, jump, dash) ;
         jump = false;
         dash = false;
-        shoot = false;
+       
     }
 }

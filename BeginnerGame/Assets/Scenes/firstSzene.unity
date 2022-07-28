@@ -334,6 +334,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &630135150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 630135151}
+  m_Layer: 0
+  m_Name: firePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &630135151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630135150}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.099, y: -0.071, z: -0.04050317}
+  m_LocalScale: {x: 0.11624754, y: 0.09634114, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1834653291}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705739803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,6 +1491,7 @@ GameObject:
   - component: {fileID: 1834653292}
   - component: {fileID: 1834653293}
   - component: {fileID: 1834653294}
+  - component: {fileID: 1834653295}
   m_Layer: 3
   m_Name: player
   m_TagString: Untagged
@@ -1509,8 +1541,6 @@ MonoBehaviour:
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
-  ProjectilePrefab: {fileID: 3335963914303531174, guid: b280077361588b045b7e649ddcfa8804, type: 3}
-  Launchoffset: {fileID: 2026114278}
 --- !u!50 &1834653289
 Rigidbody2D:
   serializedVersion: 4
@@ -1598,7 +1628,7 @@ Transform:
   m_Children:
   - {fileID: 922685632}
   - {fileID: 727134567}
-  - {fileID: 2026114278}
+  - {fileID: 630135151}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1653,37 +1683,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &2026114277
-GameObject:
+--- !u!114 &1834653295
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2026114278}
-  m_Layer: 0
-  m_Name: Lauchoffset
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2026114278
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026114277}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.147, y: -0.077, z: -0.082953885}
-  m_LocalScale: {x: 0.116247535, y: 0.09634114, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1834653291}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1834653287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1d45ff61f434b4380b67c69836be18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 630135151}
+  bulletPrefab: {fileID: 6940336174206810239, guid: 3cdc16b28583744409b78fcfa7e796d5, type: 3}
 --- !u!1 &2134344834
 GameObject:
   m_ObjectHideFlags: 0
