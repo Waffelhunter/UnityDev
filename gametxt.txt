@@ -1,5 +1,10 @@
 assets:
 	https://kenney.nl/assets?q=2d
 
-Game Jams
-	https://itch.io/jams
+
+Plattformer:
+	Ziele:
+		Angriff
+		dash
+		wallJump
+		Gegner
