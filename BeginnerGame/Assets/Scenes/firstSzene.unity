@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 705739804}
   - component: {fileID: 705739808}
   - component: {fileID: 705739807}
+  - component: {fileID: 705739809}
   m_Layer: 0
   m_Name: frog-idle-4
   m_TagString: Untagged
@@ -523,8 +524,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705739803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.25, y: 1.19, z: 0}
-  m_LocalScale: {x: 11.595769, y: 10.636164, z: 1}
+  m_LocalPosition: {x: 18.15, y: 5.92, z: 0}
+  m_LocalScale: {x: 11.515758, y: 10.636164, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -578,15 +579,31 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 200
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10000
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &705739809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705739803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bedbeb7e4ca36e4bbcc1cf5cbf84631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 0
+  rb: {fileID: 705739808}
+  speed: 200
+  Timer: 2000
 --- !u!1 &727134566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,7 +1771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 630135151}
-  bulletPrefab: {fileID: 6940336174206810239, guid: 3cdc16b28583744409b78fcfa7e796d5, type: 3}
+  bulletPrefab: {fileID: 152320458549263643, guid: 75ac0863e8a4c7d4996159f4527daf79, type: 3}
 --- !u!1 &2134344834
 GameObject:
   m_ObjectHideFlags: 0
