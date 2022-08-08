@@ -42,4 +42,14 @@ public class Patrol : MonoBehaviour
         
         speed *= -1;
     }
+
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        //hier könnte man den schaden für den player einbauen, wenn man die hitinfo abruft
+
+        Flip();
+        Timer = Timersafe;
+
+
+    }
 }
