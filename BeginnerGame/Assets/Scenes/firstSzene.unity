@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bedbeb7e4ca36e4bbcc1cf5cbf84631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   rb: {fileID: 473587751}
   speed: 20
   Timer: 2000
